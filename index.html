@@ -9,7 +9,74 @@
       rel="stylesheet"
     />
     <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background-color: #212121;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .wrapper {
+        width: 400px;
+        background-color: #333;
+        padding: 50px 40px;
+        box-shadow: 0 20px 65px rgba(87, 11, 16, 0.5);
+        position: relative;
+        border-radius: 8px;
+        text-align: center;
+      }
+      .wrapper:after {
+        content: "";
+        position: absolute;
+        width: 80%;
+        height: 120%;
+        background-color: #ffffff;
+        z-index: -1;
+        top: -10%;
+        left: 10%;
+        filter: blur(10px);
+      }
+      .container {
+        width: 100%;
+        padding: 20px;
+      }
+      .container p {
+        color: #fdd8d8;
+        line-height: 2;
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+      .container h3 {
+        color: #ffffff;
+        margin: 20px 0 60px 0;
+        font-weight: 600;
+        text-transform: capitalize;
+      }
+      .container button {
+        background-color: #ffffff;
+        border: none;
+        padding: 15px 45px;
+        border-radius: 5px;
+        font-size: 18px;
+        font-weight: 600;
+        color: #f43543;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+      .container button:hover {
+        background-color: #f43543;
+        color: #ffffff;
+      }
+    </style>
   </head>
   <body>
     <div class="wrapper">
@@ -23,6 +90,24 @@
       </div>
     </div>
     <!-- Script -->
-    <script src="script.js"></script>
+    <script>
+      let quote = document.getElementById("quote");
+      let author = document.getElementById("author");
+      let btn = document.getElementById("btn");
+
+      const url = "https://api.quotable.io/random";
+
+      let getQuote = () => {
+        fetch(url)
+          .then((data) => data.json())
+          .then((item) => {
+            quote.innerText = item.content;
+            author.innerText = item.author;
+          });
+      };
+
+      window.addEventListener("load", getQuote);
+      btn.addEventListener("click", getQuote);
+    </script>
   </body>
 </html>
