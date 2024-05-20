@@ -31,6 +31,12 @@ button:hover {
     background-color: #0056b3;
 }
 
-blockquote {
+blockquote span:first-child {
     font-style: italic;
+}
+
+blockquote span:last-child {
+    font-weight: bold;
+    font-size: 0.8em;
+    color: #666;
 }

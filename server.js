@@ -11,7 +11,7 @@ app.use(express.static('public'));
 app.get('/api/quote', (req, res) => {
     const randomIndex = Math.floor(Math.random() * quotes.length);
     const randomQuote = quotes[randomIndex];
-    res.json({ quote: randomQuote });
+    res.json({ text: randomQuote.text, author: randomQuote.author });
 });
 
 app.listen(PORT, () => {
