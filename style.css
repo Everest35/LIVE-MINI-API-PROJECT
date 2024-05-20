@@ -4,53 +4,64 @@
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 body {
-  background-color: #f43543;
+  background-color: #212121; /* Dark gray background */
 }
+
 .wrapper {
-  width: 400px;
+  width: 500px; /* Increased width for better readability */
   position: absolute;
   transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
 }
+
 .container {
   width: 100%;
-  background-color: #f43543;
-  padding: 50px 40px;
-  box-shadow: 0 20px 65px rgba(87, 11, 16, 0.5);
+  background-color: #333; /* Darker background for the container */
+  padding: 30px 40px;
+  box-shadow: 0 20px 65px rgba(0, 0, 0, 0.5);
   position: relative;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
 }
+
 .container:after {
   content: "";
   position: absolute;
-  width: 80%;
-  height: 120%;
-  background-color: #ffffff;
+  width: 90%;
+  height: 110%;
+  background-color: #444; /* Darker background for the pseudo-element */
   z-index: -1;
-  top: -10%;
-  left: 10%;
+  top: -5%;
+  left: 5%;
 }
+
 .container p {
-  color: #fdd8d8;
-  line-height: 2;
-  font-size: 18px;
+  color: #fff; /* White text color for better contrast */
+  line-height: 1.5;
+  font-size: 22px; /* Increased font size for better readability */
 }
+
 .container h3 {
-  color: #ffffff;
-  margin: 20px 0 60px 0;
+  color: #fff; /* White text color for better contrast */
+  margin: 20px 0 40px 0;
   font-weight: 600;
   text-transform: capitalize;
 }
+
 .container button {
-  background-color: #ffffff;
+  background-color: #4CAF50; /* Green button color */
   border: none;
   padding: 15px 45px;
   border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
-  color: #f43543;
+  color: #fff; /* White text color for better contrast */
   cursor: pointer;
+}
+
+.container button:hover {
+  background-color: #3e8e41; /* Darker green on hover */
 }
