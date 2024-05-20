@@ -1,32 +1,17 @@
-const quoteElement = document.getElementById('quote');
-const newQuoteButton = document.getElementById('new-quote');
-let previousQuote = null;
+let quote = document.getElementById("quote");
+let author = document.getElementById("author");
+let btn = document.getElementById("btn");
 
-newQuoteButton.addEventListener('click', getQuote);
+const url = "https://api.quotable.io/random";
 
-function getQuote() {
-    fetch('/api/quote')
-        .then(response => response.json())
-        .then(data => {
-            if (data.text === previousQuote) {
-                getQuote(); // Get a new quote if it's the same as the previous one
-            } else {
-                previousQuote = data.text;
-                const quoteText = document.createElement('span');
-                quoteText.textContent = data.text;
-                const authorText = document.createElement('span');
-                authorText.textContent = `— ${data.author}`;
-                authorText.style.fontWeight = 'bold';
-                quoteElement.innerHTML = '';
-                quoteElement.appendChild(quoteText);
-                quoteElement.appendChild(authorText);
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching quote:', error);
-            quoteElement.textContent = 'Failed to fetch quote. Please try again later.';
-        });
-}
+let getQuote = () => {
+  fetch(url)
+    .then((data) => data.json())
+    .then((item) => {
+      quote.innerText = item.content;
+      author.innerText = item.author;
+    });
+};
 
-// Initial quote fetch
-getQuote();
+window.addEventListener("load", getQuote);
+btn.addEventListener("click", getQuote);
